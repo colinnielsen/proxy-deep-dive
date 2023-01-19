@@ -1,19 +1,16 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-/// @dev TLDR: data is stored as an array with indicies ranging from 0 -> 2**256-1 
+uint256 constant MY_RANDO_SLOT = 124352352352362151212;
+struct StorageLayout {
+    uint256 var1;
+}
 contract StorageSlots {
-    uint256 variable1; // slot 0
-    bytes32 variable2; // slot 1
-    uint128 halfSizeVar; // slot 2
-    uint128 halfSizeVar2; // slot 2
-    bytes32 other; // slot 3
-
-    function setVar1(uint256 newVar) public  {
-        variable1 = newVar; // this tells the EVM to write newVar at storage slot 0
-    }
-
-    function setHalfSizeVar1(uint128 newHalfSize) public {
-        halfSizeVar = newHalfSize; // this tells the evm to load storage slot 2, and put the newHalfSize param in the left side of that 32 byte chunk
+    function getStorage() internal pure returns (StorageLayout storage) {
+        StorageLayout storage customStorage;
+        assembly {
+            customStorage.slot := MY_RANDO_SLOT
+        }
+        return customStorage;
     }
 }
