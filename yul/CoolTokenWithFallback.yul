@@ -664,6 +664,7 @@ object "CoolTokenWithFallback_428" {
 
     }
     /// @use-src 0:"lib/solmate/src/tokens/ERC20.sol", 1:"src/CoolToken.sol"
+    // CODEMENTOR HERE
     object "CoolTokenWithFallback_428_deployed" {
         code {
             /// @src 1:245:531  "contract CoolTokenWithFallback is ERC20 {..."
@@ -761,7 +762,6 @@ object "CoolTokenWithFallback_428" {
                 default {}
             }
             if iszero(calldatasize()) { fun__427() stop() }
-            if callvalue() { revert_error_ca66f745a3ce8ff40e2ccaf1ad45db7774001b90d25810abd9040049be7bf4bb() }
             fun__417() stop()
 
             function shift_right_224_unsigned(value) -> newValue {

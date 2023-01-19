@@ -664,6 +664,7 @@ object "CoolToken_408" {
 
     }
     /// @use-src 0:"lib/solmate/src/tokens/ERC20.sol", 1:"src/CoolToken.sol"
+    // CODEMENTOR HERE
     object "CoolToken_408_deployed" {
         code {
             /// @src 1:101:228  "contract CoolToken is ERC20 {..."
